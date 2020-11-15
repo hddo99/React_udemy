@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ComponentDetail from './CommentDetail'
+import faker from 'faker'
+import ApprovalCard from './ApprovalCard'
 
+
+const App = () =>   {
+    return (
+        <div className="ui contaner comments">
+            <ApprovalCard>
+                <h4>Warning!</h4>
+                Are you sure you want to do this?
+            </ApprovalCard> 
+            <ApprovalCard>
+                <ComponentDetail author="Sam" timeAgo="Today at 4:45PM" imgSrc={faker.image.avatar()} textContent="Nice blog post!"/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <ComponentDetail author="Tom" timeAgo="Today at 5:45PM" imgSrc={faker.image.avatar()} textContent="Nice blog post!"/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <ComponentDetail author="Max" timeAgo="Today at 6:45PM" imgSrc={faker.image.avatar()} textContent="Nice blog post!"/>
+            </ApprovalCard>
+        </div>
+    )
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <App />,
+    document.querySelector('#root')
+)
